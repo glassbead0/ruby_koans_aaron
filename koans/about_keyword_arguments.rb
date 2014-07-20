@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
-class AboutMethods < Neo::Koan
+class AboutKeywordArguments < Neo::Koan
 
   def method_with_keyword_arguments(one: 1, two: 'two')
     [one, two]
@@ -13,13 +13,13 @@ class AboutMethods < Neo::Koan
     assert_equal __, method_with_keyword_arguments(two: 2)
   end
 
-  def method_with_keywork_arguments_with_mandatory_argument(one, two: 2, three: 3)
+  def method_with_keyword_arguments_with_mandatory_argument(one, two: 2, three: 3)
     [one, two, three]
   end
 
   def test_keyword_arguments_with_wrong_number_of_arguments
     exception = assert_raise (___) do
-      method_with_keywork_arguments_with_mandatory_argument
+      method_with_keyword_arguments_with_mandatory_argument
     end
     assert_match(/__/, exception.message)
   end

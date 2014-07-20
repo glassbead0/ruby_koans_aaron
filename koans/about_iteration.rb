@@ -3,10 +3,10 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class AboutIteration < Neo::Koan
 
   # -- An Aside ------------------------------------------------------
-  # Ruby 1.8 stores names as strings. Ruby 1.9 stores names as
-  # symbols. So we use a version dependent method "as_name" to convert
-  # to the right format in the koans.  We will use "as_name" whenever
-  # comparing to lists of methods.
+  # Ruby 1.8 stores names as strings. Ruby 1.9 and later stores names
+  # as symbols. So we use a version dependent method "as_name" to
+  # convert to the right format in the koans. We will use "as_name"
+  # whenever comparing to lists of methods.
 
   in_ruby_version("1.8") do
     def as_name(name)
@@ -14,7 +14,7 @@ class AboutIteration < Neo::Koan
     end
   end
 
-  in_ruby_version("1.9", "2.0") do
+  in_ruby_version("1.9", "2") do
     def as_name(name)
       name.to_sym
     end
@@ -39,9 +39,7 @@ class AboutIteration < Neo::Koan
   def test_each_can_use_curly_brace_blocks_too
     array = [1, 2, 3]
     sum = 0
-    array.each do |item|
-      sum += item
-    end
+    array.each { |item| sum += item }
     assert_equal __, sum
   end
 
@@ -86,7 +84,7 @@ class AboutIteration < Neo::Koan
     result = [2, 3, 4].inject(0) { |sum, item| sum + item }
     assert_equal __, result
 
-    result2 = [2, 3, 4].inject(1) { |sum, item| sum * item }
+    result2 = [2, 3, 4].inject(1) { |product, item| product * item }
     assert_equal __, result2
 
     # Extra Credit:
