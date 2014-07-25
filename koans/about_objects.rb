@@ -27,7 +27,7 @@ class AboutObjects < Neo::Koan
   def test_every_object_has_different_id
     obj = Object.new
     another_obj = Object.new
-    assert_equal true, obj.object_id != obj.object_id
+    assert_equal true, obj.object_id != another_obj.object_id
   end
 
   def test_small_integers_have_fixed_ids
@@ -42,7 +42,7 @@ class AboutObjects < Neo::Koan
 
   def test_clone_creates_a_different_object
     obj = Object.new
-    copy = nil.clone
+    copy = obj.clone
 
     assert_equal __, obj           != copy
     assert_equal __, obj.object_id != copy.object_id
