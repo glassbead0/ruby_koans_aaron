@@ -42,7 +42,7 @@ class AboutObjects < Neo::Koan
 
   def test_clone_creates_a_different_object
     obj = Object.new
-    copy = obj.clone
+    copy = nil.clone
 
     assert_equal __, obj           != copy
     assert_equal __, obj.object_id != copy.object_id
