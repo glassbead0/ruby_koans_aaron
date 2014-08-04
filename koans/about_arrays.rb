@@ -15,10 +15,10 @@ class AboutArrays < Neo::Koan
     assert_equal [1], array
 
     array[1] = 2
-    assert_equal [1, __], array
+    assert_equal [1, 2], array  # Note, pick this one
 
     array << 333
-    assert_equal __, array
+    assert_equal [1, 2, 333], array  # Please pick my version
   end
 
   def test_accessing_array_elements
