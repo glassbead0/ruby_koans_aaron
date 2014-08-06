@@ -74,35 +74,35 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_period_is_a_shortcut_for_any_non_newline_character
-    assert_equal __, "abc\n123"[/a.+/]
+    assert_equal 'abc', "abc\n123"[/a.+/]
   end
 
   def test_a_character_class_can_be_negated
-    assert_equal __, "the number is 42"[/[^0-9]+/]
+    assert_equal 'the number is ', "the number is 42"[/[^0-9]+/]
   end
 
   def test_shortcut_character_classes_are_negated_with_capitals
-    assert_equal __, "the number is 42"[/\D+/]
-    assert_equal __, "space: \t\n"[/\S+/]
+    assert_equal 'the number is ', "the number is 42"[/\D+/]
+    assert_equal "space:", "space: \t\n"[/\S+/]
     # ... a programmer would most likely do
-    assert_equal __, "variable_1 = 42"[/[^a-zA-Z0-9_]+/]
-    assert_equal __, "variable_1 = 42"[/\W+/]
+    assert_equal ' = ', "variable_1 = 42"[/[^a-zA-Z0-9_]+/]
+    assert_equal ' = ', "variable_1 = 42"[/\W+/]
   end
 
   # ------------------------------------------------------------------
 
   def test_slash_a_anchors_to_the_start_of_the_string
-    assert_equal __, "start end"[/\Astart/]
-    assert_equal __, "start end"[/\Aend/]
+    assert_equal 'start', "start end"[/\Astart/]
+    assert_equal nil, "start end"[/\Aend/]
   end
 
   def test_slash_z_anchors_to_the_end_of_the_string
-    assert_equal __, "start end"[/end\z/]
-    assert_equal __, "start end"[/start\z/]
+    assert_equal 'end', "start end"[/end\z/]
+    assert_equal nil, "start end"[/start\z/]
   end
 
   def test_caret_anchors_to_the_start_of_lines
-    assert_equal __, "num 42\n2 lines"[/^\d+/]
+    assert_equal '2', "num 42\n2 lines"[/^\d+/]
   end
 
   def test_dollar_sign_anchors_to_the_end_of_lines
