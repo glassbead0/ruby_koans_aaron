@@ -54,7 +54,7 @@ class AboutControlStatements < Neo::Koan
     result = :default_value
     result = :true_value if true
 
-    assert_equal __, result
+    assert_equal :true_value, result
   end
 
   def test_unless_statement
@@ -62,7 +62,7 @@ class AboutControlStatements < Neo::Koan
     unless false    # same as saying 'if !false', which evaluates as 'if true'
       result = :false_value
     end
-    assert_equal __, result
+    assert_equal :false_value, result
   end
 
   def test_unless_statement_evaluate_true
@@ -70,14 +70,14 @@ class AboutControlStatements < Neo::Koan
     unless true    # same as saying 'if !true', which evaluates as 'if false'
       result = :true_value
     end
-    assert_equal __, result
+    assert_equal :default_value, result
   end
 
   def test_unless_statement_modifier
     result = :default_value
     result = :false_value unless false
 
-    assert_equal __, result
+    assert_equal :false_value, result
   end
 
   def test_while_statement
@@ -87,7 +87,7 @@ class AboutControlStatements < Neo::Koan
       result = result * i
       i += 1
     end
-    assert_equal __, result
+    assert_equal 10*9*8*7*6*5*4*3*2, result
   end
 
   def test_break_statement
@@ -98,7 +98,7 @@ class AboutControlStatements < Neo::Koan
       result = result * i
       i += 1
     end
-    assert_equal __, result
+    assert_equal 10*9*8*7*6*5*4*3*2, result
   end
 
   def test_break_statement_returns_values
