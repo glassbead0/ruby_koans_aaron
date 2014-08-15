@@ -14,11 +14,11 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  sides = [a, b, c].sort
-  if a == c
+  x, y, z = [a, b, c].sort # set x y and z to the sides from smallest to largest
+  if x == z
     :equilateral
-  elsif a == b || b == c
-    :isoceles
+  elsif x == y || y == z
+    :isosceles
   else
     :scalene
   end
