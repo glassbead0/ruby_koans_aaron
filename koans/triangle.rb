@@ -14,7 +14,23 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  x, y, z = [a, b, c].sort
+
+  if x <= 0
+    fail TriangleError, 'Triangles can\'t have negative or zero side lengths'
+  end
+
+  if x + y <= z
+    fail TriangleError, 'This fails the triangle inequality. Not a valid triangle'
+  end
+
+  if x == z
+    :equilateral
+  elsif a==b || b==c
+    :isosceles
+  else
+    :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
