@@ -40,7 +40,7 @@ class AboutBlocks < Neo::Koan
   def test_methods_can_call_yield_many_times
     result = []
     many_yields { |item| result << item }
-    assert_equal __, result
+    assert_equal [:peanut, :butter, :and, :jelly], result
   end
 
   # ------------------------------------------------------------------
@@ -54,8 +54,8 @@ class AboutBlocks < Neo::Koan
   end
 
   def test_methods_can_see_if_they_have_been_called_with_a_block
-    assert_equal __, yield_tester { :with_block }
-    assert_equal __, yield_tester
+    assert_equal :with_block, yield_tester { :with_block }
+    assert_equal :no_block, yield_tester
   end
 
   # ------------------------------------------------------------------
@@ -63,7 +63,7 @@ class AboutBlocks < Neo::Koan
   def test_block_can_affect_variables_in_the_code_where_they_are_created
     value = :initial_value
     method_with_block { value = :modified_in_a_block }
-    assert_equal __, value
+    assert_equal :modified_in_a_block, value
   end
 
   def test_blocks_can_be_assigned_to_variables_and_called_explicitly
