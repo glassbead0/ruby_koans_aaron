@@ -43,19 +43,19 @@ class AboutScope < Neo::Koan
   end
 
   def test_nested_string_is_not_the_same_as_the_system_string
-    assert_equal __, String == "HI".class
+    assert_equal false, String == "HI".class
   end
 
   def test_use_the_prefix_scope_operator_to_force_the_global_scope
-    assert_equal __, ::String == "HI".class
+    assert_equal true, ::String == "HI".class
   end
 
   # ------------------------------------------------------------------
 
-  PI = 3.1416
+  PI = 3.14159
 
   def test_constants_are_defined_with_an_initial_uppercase_letter
-    assert_equal __, PI
+    assert_equal 3.14159, PI
   end
 
   # ------------------------------------------------------------------
