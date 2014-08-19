@@ -35,7 +35,7 @@ class Proxy
   end
 
   def number_of_times_called(method)
-    only_this_method = @messages.select { |method_name| method_name == method }.count
+    @messages.select { |method_name| method_name == method }.count
   end
 end
 
