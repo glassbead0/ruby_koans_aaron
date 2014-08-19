@@ -24,7 +24,18 @@ class Proxy
     if @object.respond_to? method
       @messages << method
       @object.send method, *args
+    else
+      super method, *args, &block
     end
+  end
+
+  def called?(method)
+    false
+    true if @messages.include?(method)
+  end
+
+  def number_of_times_called(method)
+    only_this_method = @messages.select { |method_name| method_name == method }.count
   end
 end
 
