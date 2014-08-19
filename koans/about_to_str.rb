@@ -37,7 +37,7 @@ class AboutToStr < Neo::Koan
   end
 
   def test_to_str_allows_objects_to_be_treated_as_strings
-    assert_equal __, File.exist?(CanBeTreatedAsString.new)
+    assert_equal false, File.exist?(CanBeTreatedAsString.new)
   end
 
   # ------------------------------------------------------------------
@@ -48,7 +48,7 @@ class AboutToStr < Neo::Koan
   end
 
   def test_user_defined_code_can_check_for_to_str
-    assert_equal __, acts_like_a_string?(CanNotBeTreatedAsString.new)
-    assert_equal __,  acts_like_a_string?(CanBeTreatedAsString.new)
+    assert_equal false, acts_like_a_string?(CanNotBeTreatedAsString.new)
+    assert_equal true,  acts_like_a_string?(CanBeTreatedAsString.new)
   end
 end
